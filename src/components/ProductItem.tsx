@@ -24,9 +24,12 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor:"white",
         padding:10,
-        borderRadius:10
-        // borderBottomLeftRadius:10,
-        // borderBottomEndRadius:10,
+        borderRadius:10,
+        flex:1,
+        margin:3,
+        maxWidth:"48%",
+        elevation:3,
+
     
       },
       image:{
