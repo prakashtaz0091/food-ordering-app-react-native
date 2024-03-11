@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Colors from '../constants/Colors'
 import { Product } from '@/assets/types'
+import { Link, router } from 'expo-router'
 
 export const defaultImage = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png'
 
@@ -12,11 +13,18 @@ type ProductItemProps = {
 
 export default function ProductItem({product}:ProductItemProps) {
   return (
-    <View style={styles.container}>
-        <Image source={{uri:product.image||defaultImage}} style={styles.image} />
-        <Text style={styles.title} >{product&&product.name}</Text>
-        <Text style={styles.price} >${product&&product.price}</Text>
-      </View>
+
+    <Link href={`/(tabs)/menu/${product.id}`} asChild>
+      <Pressable style={styles.container}>
+          <Image 
+          source={{uri:product.image||defaultImage}} 
+          style={styles.image}
+          resizeMode='contain'
+          />
+          <Text style={styles.title} >{product&&product.name}</Text>
+          <Text style={styles.price} >${product&&product.price}</Text>
+      </Pressable> 
+    </Link>
   )
 }
 
