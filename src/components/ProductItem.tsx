@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Image, TouchableOpacity, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Colors from '../constants/Colors'
 import { Product } from '@/assets/types'
@@ -15,7 +15,7 @@ export default function ProductItem({product}:ProductItemProps) {
   return (
 
     <Link href={`/(tabs)/menu/${product.id}`} asChild>
-      <Pressable style={styles.container}>
+      <TouchableOpacity style={styles.container}>
           <Image 
           source={{uri:product.image||defaultImage}} 
           style={styles.image}
@@ -23,7 +23,7 @@ export default function ProductItem({product}:ProductItemProps) {
           />
           <Text style={styles.title} >{product&&product.name}</Text>
           <Text style={styles.price} >${product&&product.price}</Text>
-      </Pressable> 
+      </TouchableOpacity> 
     </Link>
   )
 }
