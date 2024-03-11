@@ -33,6 +33,7 @@ export default function TabLayout() {
         options={{
           title: 'Menu',
           tabBarLabel:"Menu",
+          headerShown:false,
           tabBarIcon: ({ color }) => <TabBarIcon name="cutlery" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
